@@ -12,6 +12,8 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -60,5 +62,22 @@ public class UserServiceImpl implements UserService {
                 .build();
         VerificationToken verificationToken = new VerificationToken(user, token);
         verificationTokenRepository.save(verificationToken);
+    }
+
+    @Override
+    public String validateVerificationToken(String token) {
+        VerificationToken verificationToken = verificationTokenRepository.findByToken(token);
+        if (verificationToken == null){
+            return "invalid";
+        }
+        User user = verificationToken.getUser();
+        Calendar calendar = Calendar.getInstance();
+
+        if ((verificationToken.getExpirationTime().getTime() - calendar.getTime().getTime()) <= 0){
+            return "expired";
+        }
+        user.setEnabled(true);
+        userRepository.save(user);
+        return "valid";
     }
 }
