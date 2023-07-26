@@ -35,6 +35,7 @@ public class UserServiceImpl implements UserService {
         User user1 = userRepository.save(user);
 
         UserDto userDto1 = UserDto.builder()
+                .id(user1.getId())
                 .firstName(user1.getFirstName())
                 .lastName(user1.getLastName())
                 .email(user1.getEmail())
@@ -50,6 +51,7 @@ public class UserServiceImpl implements UserService {
     public void saveVerificationTokenForUser(String token, UserDto userDto) {
         User user = User
                 .builder()
+                .id(userDto.getId())
                 .firstName(userDto.getFirstName())
                 .lastName(userDto.getLastName())
                 .email(userDto.getEmail())
