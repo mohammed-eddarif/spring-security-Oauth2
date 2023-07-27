@@ -16,7 +16,9 @@ public class WebSecurityConfig {
 
     private static final String[] WHITE_LIST = {
             "/hello",
-            "/register"
+            "/register",
+            "verifyRegistration",
+            "resendVerifyToken"
     };
     @Bean
     public PasswordEncoder passwordEncoder(){

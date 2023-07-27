@@ -1,4 +1,4 @@
-package com.springsecurity.springsecurityclient.config.listener;
+package com.springsecurity.springsecurityclient.event.listener;
 
 import com.springsecurity.springsecurityclient.dto.UserDto;
 import com.springsecurity.springsecurityclient.entity.User;
