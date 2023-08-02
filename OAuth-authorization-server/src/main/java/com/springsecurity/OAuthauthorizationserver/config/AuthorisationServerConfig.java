@@ -30,12 +30,16 @@ import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.util.UUID;
 
+// standard configuration for authorisation server .
+
 @Configuration(proxyBeanMethods = false)
 public class AuthorisationServerConfig {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+
+    // default OAuth 2 authorisation functionalities  " applyDefaultSecurity "
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
     public SecurityFilterChain authServerSecurityFilterChain(HttpSecurity http) throws Exception {

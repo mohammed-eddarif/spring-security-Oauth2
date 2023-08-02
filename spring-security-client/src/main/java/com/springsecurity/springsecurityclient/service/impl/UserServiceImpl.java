@@ -4,13 +4,11 @@ import com.springsecurity.springsecurityclient.dto.UserDto;
 import com.springsecurity.springsecurityclient.entity.PasswordResetToken;
 import com.springsecurity.springsecurityclient.entity.User;
 import com.springsecurity.springsecurityclient.entity.VerificationToken;
-import com.springsecurity.springsecurityclient.event.RegistarationCompleteEvent;
 import com.springsecurity.springsecurityclient.repository.PasswordResetTokenRepository;
 import com.springsecurity.springsecurityclient.repository.UserRepository;
 import com.springsecurity.springsecurityclient.repository.VerificationTokenRepository;
 import com.springsecurity.springsecurityclient.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

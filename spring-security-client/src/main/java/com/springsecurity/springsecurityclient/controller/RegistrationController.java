@@ -6,7 +6,7 @@ import com.springsecurity.springsecurityclient.dto.UserRegistrationRequest;
 import com.springsecurity.springsecurityclient.dto.UserRegistrationResponse;
 import com.springsecurity.springsecurityclient.entity.User;
 import com.springsecurity.springsecurityclient.entity.VerificationToken;
-import com.springsecurity.springsecurityclient.event.RegistarationCompleteEvent;
+import com.springsecurity.springsecurityclient.event.RegistrationCompleteEvent;
 import com.springsecurity.springsecurityclient.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -48,7 +48,7 @@ public class RegistrationController {
                     .email(userDto1.getEmail())
                     .build();
 
-            publisher.publishEvent(new RegistarationCompleteEvent(
+            publisher.publishEvent(new RegistrationCompleteEvent(
                     userDto1,
                     applicationUrl(request)
             ));

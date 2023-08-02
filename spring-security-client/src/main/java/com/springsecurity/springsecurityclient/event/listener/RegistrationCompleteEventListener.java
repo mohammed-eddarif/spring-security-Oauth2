@@ -1,8 +1,7 @@
 package com.springsecurity.springsecurityclient.event.listener;
 
 import com.springsecurity.springsecurityclient.dto.UserDto;
-import com.springsecurity.springsecurityclient.entity.User;
-import com.springsecurity.springsecurityclient.event.RegistarationCompleteEvent;
+import com.springsecurity.springsecurityclient.event.RegistrationCompleteEvent;
 import com.springsecurity.springsecurityclient.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +12,13 @@ import java.util.UUID;
 
 @Component
 @Slf4j
-public class RegistrationCompleteEventListener implements ApplicationListener<RegistarationCompleteEvent> {
+public class RegistrationCompleteEventListener implements ApplicationListener<RegistrationCompleteEvent> {
 
     @Autowired
     private UserService userService;
 
     @Override
-    public void onApplicationEvent(RegistarationCompleteEvent event) {
+    public void onApplicationEvent(RegistrationCompleteEvent event) {
         // Create the verification token for the user with link " link to reward the user back to application"
         UserDto userDto = event.getUserDto();
         String token = UUID.randomUUID().toString();
