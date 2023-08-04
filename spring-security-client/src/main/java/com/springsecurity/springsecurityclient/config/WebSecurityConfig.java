@@ -16,7 +16,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfig {
 
     private static final String[] WHITE_LIST = {
-            //"/hello",
+            "/hello",
             "/register",
             "verifyRegistration",
             "resendVerifyToken"
@@ -35,7 +35,7 @@ public class WebSecurityConfig {
                 .disable()
                 .authorizeHttpRequests()
                 .antMatchers(WHITE_LIST).permitAll()
-                .antMatchers("/**").authenticated()
+                .antMatchers("/api/**").authenticated()
                 .and()
                 .oauth2Login(oauth2login ->
                         oauth2login.loginPage("/oauth2/authorization/api-client-oidc"))
